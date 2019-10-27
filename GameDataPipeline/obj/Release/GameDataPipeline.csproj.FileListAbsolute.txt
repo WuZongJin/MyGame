@@ -1,0 +1,6 @@
+D:\vs2019Project\MyGame\GameDataPipeline\bin\Release\GameDataPipeline.dll
+D:\vs2019Project\MyGame\GameDataPipeline\bin\Release\GameDataPipeline.pdb
+D:\vs2019Project\MyGame\GameDataPipeline\obj\Release\GameDataPipeline.csprojAssemblyReference.cache
+D:\vs2019Project\MyGame\GameDataPipeline\obj\Release\GameDataPipeline.csproj.CoreCompileInputs.cache
+D:\vs2019Project\MyGame\GameDataPipeline\obj\Release\GameDataPipeline.dll
+D:\vs2019Project\MyGame\GameDataPipeline\obj\Release\GameDataPipeline.pdb

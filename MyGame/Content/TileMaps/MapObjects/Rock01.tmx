@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="3">
+ <tileset firstgid="1" source="../MapTextures/Overworld.tsx"/>
+ <layer id="1" name="object" width="1" height="1">
+  <data encoding="csv">
+208
+</data>
+ </layer>
+ <objectgroup id="2" name="Collision">
+  <object id="2" name="collision" x="1.09091" y="6.81818">
+   <polygon points="0,0 13.7273,0.545455 13.8182,6.09091 -0.0909091,5.81818"/>
+  </object>
+ </objectgroup>
+</map>
