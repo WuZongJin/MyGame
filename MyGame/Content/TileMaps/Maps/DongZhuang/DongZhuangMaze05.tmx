@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="11">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="37">
  <tileset firstgid="1" source="../../MapTextures/mine..tsx"/>
  <layer id="1" name="Tiled" width="20" height="20">
   <data encoding="csv">
@@ -58,9 +58,53 @@
   <object id="6" name="collision" x="195.5" y="288" width="125.5" height="31.5"/>
   <object id="7" name="collision" x="303" y="61.5" width="17" height="226"/>
  </objectgroup>
+ <objectgroup id="6" name="Enemy">
+  <object id="30" name="octor" x="275" y="88">
+   <point/>
+  </object>
+  <object id="31" name="octor" x="277" y="274">
+   <point/>
+  </object>
+  <object id="32" name="octor" x="42.5" y="278.5">
+   <point/>
+  </object>
+  <object id="33" name="octor" x="40.5" y="90">
+   <point/>
+  </object>
+  <object id="34" name="slime" x="226" y="112.5">
+   <point/>
+  </object>
+  <object id="35" name="slime" x="225" y="241.5">
+   <point/>
+  </object>
+ </objectgroup>
  <objectgroup id="4" name="Object">
   <object id="8" name="maze4" x="0.5" y="142" width="11" height="47.5"/>
   <object id="9" name="maze6" x="143.5" y="298" width="50.5" height="20"/>
   <object id="10" name="maze7" x="144" y="0" width="50" height="29"/>
+  <object id="36" name="gate" x="167.5" y="26">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="GrassAndRock">
+  <object id="11" name="grass" x="16.5" y="60.5" width="16" height="16"/>
+  <object id="12" name="grass" x="16" y="79.5" width="16" height="16"/>
+  <object id="13" name="grass" x="33.5" y="60.5" width="16" height="16"/>
+  <object id="14" name="grass" x="285.5" y="61" width="16" height="16"/>
+  <object id="15" name="grass" x="268" y="61.5" width="16" height="16"/>
+  <object id="16" name="grass" x="285.5" y="79" width="16" height="16"/>
+  <object id="17" name="grass" x="15.5" y="270.5" width="16" height="16"/>
+  <object id="18" name="grass" x="15" y="253" width="16" height="16"/>
+  <object id="19" name="grass" x="288.5" y="248.5" width="16" height="16"/>
+  <object id="20" name="grass" x="287.5" y="267.5" width="16" height="16"/>
+  <object id="21" name="grass" x="286.5" y="123.5" width="16" height="16"/>
+  <object id="22" name="grass" x="286.5" y="141" width="16" height="16"/>
+  <object id="23" name="grass" x="286" y="158.5" width="16" height="16"/>
+  <object id="24" name="rock" x="164" y="136.5" width="17.5" height="17.5"/>
+  <object id="25" name="rock" x="145.75" y="136.75" width="17.5" height="17.5"/>
+  <object id="26" name="rock" x="145.25" y="157.25" width="17.5" height="17.5"/>
+  <object id="27" name="rock" x="165.25" y="157.25" width="17.5" height="17.5"/>
+  <object id="28" name="rock" x="30.75" y="253.75" width="17.5" height="17.5"/>
+  <object id="29" name="rock" x="269.75" y="247.75" width="17.5" height="17.5"/>
  </objectgroup>
 </map>

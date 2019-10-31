@@ -29,8 +29,16 @@ namespace MyGame.GlobalManages.Notification
             graphics.batcher.end();
             graphics.batcher.begin();
 
-            graphics.batcher.draw(message.texture, new Rectangle(position.ToPoint(), textureSize),message.texture.sourceRect,Color.White);
-            graphics.batcher.drawString(graphics.bitmapFont, message.message, new Vector2(position.X+ textureSize.X,position.Y), new Color(255, 255, 255, 0));
+            if (message.texture != null)
+            {
+                graphics.batcher.draw(message.texture, new Rectangle(position.ToPoint(), textureSize), message.texture.sourceRect, Color.White);
+                graphics.batcher.drawString(graphics.bitmapFont, message.message, new Vector2(position.X + textureSize.X, position.Y), new Color(255, 255, 255, 0));
+
+            }
+            else
+            {
+                graphics.batcher.drawString(graphics.bitmapFont, message.message, new Vector2(position.X, position.Y), new Color(255, 255, 255, 0));
+            }
 
 
             graphics.batcher.end();

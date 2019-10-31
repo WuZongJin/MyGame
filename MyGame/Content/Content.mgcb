@@ -326,6 +326,30 @@
 /processorParam:TextureFormat=Color
 /build:Images/Color/white.png
 
+#begin Images/Enemys/Archer.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Enemys/Archer.png
+
+#begin Images/Enemys/Armos.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Enemys/Armos.png
+
 #begin Images/Enemys/Bat.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -361,6 +385,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Enemys/BlackOctor2.png
+
+#begin Images/Enemys/dzMazeBoss.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Enemys/dzMazeBoss.png
 
 #begin Images/Enemys/enemy.png
 /importer:TextureImporter
@@ -5246,6 +5282,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/ItemsObjects/EButton.png
 
+#begin Images/ItemsObjects/fireBall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/ItemsObjects/fireBall.png
+
 #begin Images/ItemsObjects/openFont.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -5269,6 +5317,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/ItemsObjects/searchFont.png
+
+#begin Images/ItemsObjects/Shield.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/ItemsObjects/Shield.png
 
 #begin Images/ItemsObjects/springobjects.png
 /importer:TextureImporter

@@ -3,6 +3,9 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Bat;
+using MyGame.GameEntities.Enemys.Slime;
+using MyGame.GameEntities.Items.Others;
 using MyGame.GameEntities.Player;
 using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
@@ -45,7 +48,8 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initTiledMap();
             initSceneChangeTrigger();
             initGrassAndRock();
-
+            initEnemy();
+            initBox();
         }
 
         public override void onStart()
@@ -166,6 +170,47 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             {
                 addEntity(xRock.create()).setPosition(rock.position + new Vector2(rock.width / 2, rock.height / 2));
             }
+        }
+        #endregion
+
+        #region initBox
+        private void initBox()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Object");
+            var boxObject = objectLayer.objectWithName("box");
+
+            var box = addEntity(new TreasureBox());
+            box.setPosition(boxObject.position);
+            if((GameEvent.dzMazeEvent& DongZhuangMazeEvent.Maze2KeyHasGeted) == 0)
+            {
+                box.openBox += () =>
+                {
+                    GameEvent.dzMazeEvent = GameEvent.dzMazeEvent | DongZhuangMazeEvent.Maze2KeyHasGeted;
+                    player.pickUp(new DongZhuangMazeKey());
+                };
+            }
+            else
+            {
+                box.boxHasOpend();
+            }
+
+        }
+        #endregion
+
+        #region initEnemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+            var batObject = objectLayer.objectWithName("bat");
+            var slimeObject = objectLayer.objectsWithName("slime");
+
+            addEntity(new Bat()).setPosition(batObject.position);
+
+            foreach(var slime in slimeObject)
+            {
+                addEntity(new Slime(slime.position));
+            }
+            
         }
         #endregion
 

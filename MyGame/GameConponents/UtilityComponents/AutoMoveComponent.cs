@@ -21,6 +21,12 @@ namespace MyGame.GameConponents.UtilityComponents
             this.speed = speed;
         }
 
+        public AutoMoveComponent(float degress,float speed)
+        {
+            this.direction = new Vector2((float)Math.Sin(degress),-(float)Math.Cos(degress));
+            this.speed = speed;
+        }
+
         public override void onAddedToEntity()
         {
             base.onAddedToEntity();

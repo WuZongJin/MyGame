@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Items.Others;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -21,6 +23,7 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
         #region Properties
         Player player;
         TiledMap tiledMap;
+        bool hasFindBox = false;
         #endregion
 
         #region Constrcutor
@@ -41,14 +44,23 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
 
             addRenderer(new RenderLayerRenderer(0, GameLayerSetting.debugDrawViewLayer));
 
+           
+
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initGrassAndRock();
         }
         public override void onStart()
         {
             base.onStart();
             initCamera();
+        }
+
+        public override void update()
+        {
+            base.update();
+            
         }
 
 
@@ -152,6 +164,27 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region init Grass And Rock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var grassList = objectLayer.objectsWithName("grass");
+            var tgrass = objectLayer.objectWithName("tgrass");
+
+            foreach (var grass in grassList)
+            {
+                addEntity(new Grass01().setPosition(grass.position + new Vector2(grass.width / 2, grass.height / 2)));
+            }
+
+            var grasst = addEntity(new Grass01());
+            grasst.setPosition(tgrass.position);
+            grasst.onBroked += () =>
+            {
+                scene.addEntity(new DongZhuangMazeKeyEntity()).setPosition(grasst.position + new Vector2(5, 0));
+            };
         }
         #endregion
     }

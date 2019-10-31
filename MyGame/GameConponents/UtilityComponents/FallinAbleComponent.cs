@@ -17,6 +17,7 @@ namespace MyGame.GameConponents.UtilityComponents
         #region Properties
         public Vector2 fallinReturnPosition { get; set; }
         public Fixture fallinHole { get; set; }
+        public Fixture nextfallinHole { get; set; }
         public bool potentialFallin { get; set; }
         public Action fallin { get; set; }
 

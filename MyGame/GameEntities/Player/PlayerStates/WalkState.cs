@@ -139,6 +139,11 @@ namespace MyGame.GameEntities.Player.PlayerStates
                     direLocker = false;
                 }
             }
+            if (moveDir.Length() > 1)
+            {
+                moveDir.Normalize();
+            }
+            
 
             if (moveDir != Vector2.Zero)
             {

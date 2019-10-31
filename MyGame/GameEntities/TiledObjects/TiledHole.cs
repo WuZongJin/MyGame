@@ -44,11 +44,18 @@ namespace MyGame.GameEntities.TiledObjects
                     var fallin = component.entity.getComponent<FallinAbleComponent>();
                     if (fallin != null)
                     {
-                        var mposition = component.entity.position;
-                       
-                        fallin.fallinHole = box.GetFixture();
-                        fallin.potentialFallin = true;
-                        fallin.fallinReturnPosition = mposition;
+                        if (fallin.fallinHole == null)
+                        {
+                            var mposition = component.entity.position;
+
+                            fallin.fallinHole = box.GetFixture();
+                            fallin.potentialFallin = true;
+                            fallin.fallinReturnPosition = mposition;
+                        }
+                        else
+                        {
+                            fallin.nextfallinHole = box.GetFixture();
+                        }
                     }
 
                     return true;
@@ -59,10 +66,23 @@ namespace MyGame.GameEntities.TiledObjects
                     var fallin = component.entity.getComponent<FallinAbleComponent>();
                     if (fallin!=null)
                     {
-                        var mposition = component.entity.position;
-                        fallin.fallinHole = null;
-                        fallin.potentialFallin = false;
-                        fallin.fallinReturnPosition = Vector2.Zero;
+                        if (fallin.fallinHole == box.GetFixture()&&fallin.nextfallinHole != null)
+                        {
+                            fallin.fallinHole = fallin.nextfallinHole;
+                            fallin.nextfallinHole = null;
+
+                        }
+                        else if(fallin.nextfallinHole != null&&fallin.nextfallinHole == box.GetFixture())
+                        {
+                            fallin.nextfallinHole = null;
+                            
+                        }
+                        else if(fallin.fallinHole == box.GetFixture() && fallin.nextfallinHole == null)
+                        {
+                            fallin.fallinHole = null;
+                            fallin.potentialFallin = false;
+                            fallin.fallinReturnPosition = Vector2.Zero;
+                        }
                     }
                 };
 

@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace MyGame.GameEntities.Enemys.Bat
 {
-    public class Bat:Entity
+    public class Bat:Entity,IPauseable
     {
         public enum BatAnimations
         {
@@ -45,6 +45,8 @@ namespace MyGame.GameEntities.Enemys.Bat
         SimpleStateMachine<BatStates> stateMachine;
 
         public float moveSpeed { get { return this.actorProperty.moveSpeed + actorProperty.moveSpeedUpValue + actorProperty.moveSpeed * actorProperty.moveSpeedUpRate; } }
+
+        public bool couldPause { get; set; }
         #endregion
 
         #region Override 

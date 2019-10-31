@@ -3,8 +3,14 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Archer;
+using MyGame.GameEntities.Enemys.Armos;
+using MyGame.GameEntities.Enemys.DZMazeBoss;
+using MyGame.GameEntities.Items;
+using MyGame.GameEntities.Items.Weapon;
 using MyGame.GameEntities.Player;
 using MyGame.GameEntities.TiledObjects;
+using MyGame.GameResources;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -46,7 +52,14 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initGrassAndRock();
             initPot();
             initSceneChangeTrigger();
-
+            // addEntity(new Archer()).setPosition(100, 100);
+            //addEntity(new Armos()).setPosition(150, 100);
+            //var boss = addEntity(new DZMazeBoss());
+            //boss.setPosition(150, 100);
+            //boss.startMove = true;
+            //addEntity(new NormalBow()).setPosition(150, 200);
+            //addEntity(new Normalsword()).setPosition(150, 150);
+            //addEntity(new ArrowEntity(50)).setPosition(150, 170);
         }
 
         public override void onStart()
@@ -192,7 +205,12 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             var potList = objectLayer.objectsWithName("pot");
             foreach(var pot in potList)
             {
-                addEntity(new Bottle01()).setPosition(pot.position+new Vector2(pot.width/2f,pot.height/2f));
+                var bot =addEntity(new Bottle01());
+                bot.setPosition(pot.position+new Vector2(pot.width/2f,pot.height/2f));
+                bot.onBroked += () =>
+                {
+                    addEntity(new ArrowEntity(5)).setPosition(bot.position);
+                };
             }
         }
         #endregion

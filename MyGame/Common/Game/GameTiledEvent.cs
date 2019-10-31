@@ -27,8 +27,10 @@ namespace MyGame.Common.Game
         Null = 0,
         Maze1GateOpened = 1,                    //Maze1的大门是否被打开
         Maze2KeyHasGeted = 2,                   //Maze2的钥匙是否拿到了
-        Maze6KeyHasGeted = 4,                   //Maze3的钥匙是否拿到了
+        Maze6KeyHasGeted = 4,                   //Maze6的钥匙是否拿到了
         Maze5GateOpened = 8,                    //Maze5的大门是否打开
+        PlayerGetArrow = 16,                    //玩家是否获得了弓箭
+        MazeBossKilled = 32,                    //dzmazz的boss是否被杀死了
     }
 
 

@@ -604,3 +604,8 @@ D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\TileMaps\Maps\
 D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\TileMaps\Maps\DongZhuang\DongZhuangMaze08.xnb
 D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\TileMaps\Maps\DongZhuang\DongZhuangMaze09.xnb
 D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\TileMaps\Maps\DongZhuang\DongZhuangMaze10.xnb
+D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\Images\Enemys\Archer.xnb
+D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\Images\ItemsObjects\Shield.xnb
+D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\Images\Enemys\Armos.xnb
+D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\Images\ItemsObjects\fireBall.xnb
+D:\vs2019Project\MyGame\MyGame\bin\DesktopGL\AnyCPU\Debug\Content\Images\Enemys\dzMazeBoss.xnb

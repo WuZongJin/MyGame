@@ -28,6 +28,7 @@ namespace MyGame.Recipe
         public string name;
         public List<RawMaterial> rawMaterials;
         public ItemComponent produce;
+        public int porduceCount;
 
         public bool avaiableToCreate()
         {

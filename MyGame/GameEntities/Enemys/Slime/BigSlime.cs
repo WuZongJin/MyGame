@@ -18,7 +18,7 @@ using static MyGame.GameEntities.Enemys.Slime.Slime;
 
 namespace MyGame.GameEntities.Enemys.Slime
 {
-    public class BigSlime:Entity
+    public class BigSlime:Entity,IPauseable
     {
 
         #region Properties
@@ -31,7 +31,17 @@ namespace MyGame.GameEntities.Enemys.Slime
 
         public Entity target;
         public float moveSpeed { get { return this.actorProperty.moveSpeed + actorProperty.moveSpeedUpValue + actorProperty.moveSpeed * actorProperty.moveSpeedUpRate; } }
+
+        public bool couldPause { get; set; }
         #endregion
+
+        #region Constructor
+        public BigSlime()
+        {
+            couldPause = false;
+        }
+        #endregion
+
 
         #region Override
         public override void onAddedToScene()
@@ -55,6 +65,8 @@ namespace MyGame.GameEntities.Enemys.Slime
 
         public override void update()
         {
+            if (couldPause && GameSetting.isGamePause)
+                return;
             base.update();
             animation.setLayerDepth(LayerDepthExt.caluelateLayerDepth(this.position.Y));
             if(actorProperty.HP<=0)

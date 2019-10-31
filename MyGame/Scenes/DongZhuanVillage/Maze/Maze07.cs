@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Armos;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -43,6 +45,9 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initHole();
+            initGrassAndRock();
+            initEnemy();
         }
         public override void onStart()
         {
@@ -151,6 +156,41 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region init GrassAndRock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var rockList = objectLayer.objectsWithName("rock");
+           
+            foreach (var rock in rockList)
+            {
+                addEntity(xRock.create()).setPosition(rock.position + new Vector2(rock.width / 2, rock.height / 2));
+            }
+        }
+        #endregion
+
+        #region initEnemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+            var armosObject = objectLayer.objectWithName("armos");
+
+            addEntity(new Armos()).setPosition(armosObject.position);
+        }
+        #endregion
+
+        #region init Hole
+        private void initHole()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Hole");
+            var holes = objectLayer.objectsWithName("hole");
+            foreach(var hole in holes)
+            {
+                addEntity(new TiledHole(hole.position + new Vector2(hole.width / 2f, hole.height / 2f), new Vector2(hole.width, hole.height)));
+            }
         }
         #endregion
 

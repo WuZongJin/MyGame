@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="9">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="30">
  <tileset firstgid="1" source="../../MapTextures/mine..tsx"/>
  <layer id="1" name="Tiled" width="20" height="20">
   <data encoding="csv">
@@ -84,5 +84,36 @@
  <objectgroup id="5" name="Object">
   <object id="7" name="maze1" x="-2" y="143.5" width="13.5" height="45"/>
   <object id="8" name="maze5" x="308" y="140.5" width="15.5" height="52.5"/>
+ </objectgroup>
+ <objectgroup id="6" name="GrassAndRock">
+  <object id="9" name="grass" x="44.5" y="92.5" width="16" height="16"/>
+  <object id="10" name="grass" x="61" y="92" width="16" height="16"/>
+  <object id="12" name="grass" x="251" y="90.5" width="16" height="16"/>
+  <object id="13" name="grass" x="234" y="90.5" width="16" height="16"/>
+  <object id="14" name="grass" x="42.5" y="228" width="16" height="16"/>
+  <object id="15" name="grass" x="60.5" y="228" width="16" height="16"/>
+  <object id="16" name="grass" x="231.5" y="227" width="16" height="16"/>
+  <object id="17" name="grass" x="248.5" y="226.5" width="16" height="16"/>
+  <object id="20" name="grass" x="217" y="90.5" width="16" height="16"/>
+  <object id="21" name="grass" x="77" y="227.5" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="8" name="Hole">
+  <object id="23" name="hole" x="16" y="57.75" width="23.5" height="61"/>
+  <object id="24" name="hole" x="278.5" y="58" width="26.5" height="60.5"/>
+  <object id="25" name="hole" x="40.5" y="57" width="236.5" height="29.5"/>
+  <object id="26" name="hole" x="15.5" y="220" width="23" height="67.5"/>
+  <object id="28" name="hole" x="278.5" y="222" width="26.5" height="66"/>
+  <object id="29" name="hole" x="39" y="250.5" width="239" height="37.5"/>
+ </objectgroup>
+ <objectgroup id="7" name="Enemy">
+  <object id="18" name="octor" x="89" y="101.5">
+   <point/>
+  </object>
+  <object id="19" name="octor" x="221.5" y="236.5">
+   <point/>
+  </object>
+  <object id="22" name="slime" x="156" y="161.5">
+   <point/>
+  </object>
  </objectgroup>
 </map>

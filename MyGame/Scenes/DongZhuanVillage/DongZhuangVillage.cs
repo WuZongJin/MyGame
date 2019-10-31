@@ -47,6 +47,7 @@ namespace MyGame.Scenes.DongZhuanVillage
             initPlayer();
 
             initTiledMap();
+            initCamera();
             initGrass();
             initMayor();
             initSceneTrigger();
@@ -59,7 +60,7 @@ namespace MyGame.Scenes.DongZhuanVillage
         public override void onStart()
         {
             base.onStart();
-            initCamera();
+            
         }
 
         private void initPlayer()

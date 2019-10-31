@@ -31,9 +31,12 @@
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Actors/shoper.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Color/red.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Color/white.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Archer.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Armos.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Bat.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/BlackOctor1.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/BlackOctor2.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/dzMazeBoss.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/enemy.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Slime.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/headIcons/Link_Sprite.png</File>
@@ -441,8 +444,10 @@
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsIcon/W_Throw05.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/animations.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/EButton.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/fireBall.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/openFont.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/searchFont.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/Shield.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/springobjects.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/treasureBox_small.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/WeaponAttackUI.png</File>
@@ -494,6 +499,11 @@
     <File>D:/vs2019Project/MyGame/MyGame/Content/UI/window_frame_grey.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

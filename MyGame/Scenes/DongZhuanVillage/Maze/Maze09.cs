@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.DZMazeBoss;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -42,6 +44,7 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initEnemy();
         }
         public override void onStart()
         {
@@ -150,6 +153,34 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region initEnemy
+        private void initEnemy()
+        {
+            if((GameEvent.dzMazeEvent& DongZhuangMazeEvent.MazeBossKilled) == 0)
+            {
+                var boss = addEntity(new DZMazeBoss());
+                boss.setPosition(160, 160);
+                boss.startMove = true;
+
+                var objectLayer = tiledMap.getObjectGroup("Object");
+                var gate1Object = objectLayer.objectWithName("gate1");
+                var gate2Object = objectLayer.objectWithName("gate2");
+
+                var gate1 = addEntity(new MazeGateRight());
+                gate1.setPosition(gate1Object.position+new Vector2(gate1Object.width/2f,gate1Object.height/2f));
+                var gate2 = addEntity(new MazeGateLeft());
+                gate2.setPosition(gate2Object.position + new Vector2(gate2Object.width / 2f, gate2Object.height / 2f));
+
+                boss.onDeathed += () =>
+                {
+                    gate1.destoryedByKey();
+                    gate2.destoryedByKey();
+                };
+
+            }
         }
         #endregion
 

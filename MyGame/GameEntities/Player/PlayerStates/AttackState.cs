@@ -1,4 +1,6 @@
-﻿using Nez.AI.FSM;
+﻿using Microsoft.Xna.Framework;
+using Nez.AI.FSM;
+using Nez.Farseer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,11 @@ namespace MyGame.GameEntities.Player.PlayerStates
         {
             switch (animations)
             {
+                case Player.PlayerAnimations.BowAttackDown:
+                case Player.PlayerAnimations.BowAttackLeft:
+                case Player.PlayerAnimations.BowAttackRight:
+                case Player.PlayerAnimations.BowAttackUp:
+
                 case Player.PlayerAnimations.AttackDown:
                 case Player.PlayerAnimations.AttackLeft:
                 case Player.PlayerAnimations.AttackRight:
@@ -48,6 +55,42 @@ namespace MyGame.GameEntities.Player.PlayerStates
 
         public override void update(float deltaTime)
         {
+            var moveDir = Vector2.Zero;
+
+            if (_context.upButton.isDown)
+            {
+                moveDir += new Vector2(0, -1);
+                
+            }
+            if (_context.downButton.isDown)
+            {
+                moveDir += new Vector2(0, 1); 
+            }
+
+            if (_context.rightButton.isDown)
+            {
+                moveDir += new Vector2(1, 0);
+                
+            }
+            if (_context.leftButton.isDown)
+            {
+                moveDir += new Vector2(-1, 0);
+            }
+            
+            if (moveDir.Length() > 1)
+            {
+                moveDir.Normalize();
+            }
+
+            if (moveDir != Vector2.Zero)
+            {
+                var rigidBody = _context.getComponent<FSRigidBody>();
+                var movement = moveDir * _context.moveSpeed*0.2f * deltaTime;
+                FSCollisionResult fSCollisionResult;
+                FixtureExt.collidesWithAnyFixtures(rigidBody.body.fixtureList[0], ref movement, out fSCollisionResult);
+                rigidBody.entity.position += movement;
+            }
+
             if (_context.attackButton.isDown)
             {
                 attacking = true;

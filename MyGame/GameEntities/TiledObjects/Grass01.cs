@@ -26,6 +26,7 @@ namespace MyGame.GameEntities.TiledObjects
         }
 
         #region properties
+        public Action onBroked;
         Sprite<GrassAnimations> animations;
         Subtexture[] subtextures;
 
@@ -39,6 +40,14 @@ namespace MyGame.GameEntities.TiledObjects
         {
             couldPause = true;
             subtextures = new Subtexture[5];
+            onBroked += () =>
+            {
+                float number = Nez.Random.nextFloat();
+                if (number < 0.4)
+                {
+                    scene.addEntity(new PlantFiberEntity()).setPosition(this.position);
+                }
+            };
         }
         #endregion
 
@@ -72,10 +81,11 @@ namespace MyGame.GameEntities.TiledObjects
 
 
             var rigidBody = addComponent<FSRigidBody>()
-                .setBodyType(FarseerPhysics.Dynamics.BodyType.Dynamic);
+                .setBodyType(FarseerPhysics.Dynamics.BodyType.Dynamic)
+                .setIsSleepingAllowed(false);
 
             var shape = addComponent<SceneObjectTriggerComponent>();
-            shape.setRadius(5);
+            shape.setRadius(8);
                
 
             shape.setCollisionCategories(CollisionSetting.tiledObjectCategory);
@@ -105,12 +115,7 @@ namespace MyGame.GameEntities.TiledObjects
         {
             if(obj == GrassAnimations.Broke)
             {
-                float number = Nez.Random.nextFloat();
-                if (number < 0.4)
-                {
-                    scene.addEntity(new PlantFiberEntity()).setPosition(this.position);
-                }
-
+                onBroked?.Invoke();
                 this.destroy();
             }
         }

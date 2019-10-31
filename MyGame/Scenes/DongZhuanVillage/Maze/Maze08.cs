@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Archer;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -44,6 +46,8 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initEnemy();
+            initGrassAndRock();
         }
         public override void onStart()
         {
@@ -152,6 +156,35 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region init GrassAndRock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var grassList = objectLayer.objectsWithName("grass");
+
+            foreach (var grass in grassList)
+            {
+                addEntity(new Grass01().setPosition(grass.position + new Vector2(grass.width / 2, grass.height / 2)));
+            }
+
+
+
+        }
+        #endregion
+
+        #region init enemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+            var archers = objectLayer.objectsWithName("archer");
+            foreach(var archer in archers)
+            {
+                addEntity(new Archer()).setPosition(archer.position);
+            }
+
         }
         #endregion
 

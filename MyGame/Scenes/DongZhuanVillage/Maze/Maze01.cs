@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Slime;
 using MyGame.GameEntities.Items.Others;
 using MyGame.GameEntities.Player;
 using MyGame.GameEntities.TiledObjects;
@@ -50,7 +51,8 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initSceneChangeTrigger();
             initGrassAndRock();
             initGate();
-            addEntity(new DongZhuangMazeKeyEntity()).setPosition(100, 100);
+            initEnemy();
+            //addEntity(new DongZhuangMazeKeyEntity()).setPosition(100, 100);
 
         }
         public override void onStart()
@@ -232,6 +234,19 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
                         uiManager.createConmunication(conmunications);
                     }
                 };
+            }
+        }
+        #endregion
+
+        #region initEnemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+
+            var slimeObject = objectLayer.objectsWithName("slime");
+            foreach(var slime in slimeObject)
+            {
+                addEntity(new Slime(slime.position));
             }
         }
         #endregion

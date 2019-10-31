@@ -114,7 +114,7 @@ namespace MyGame.GameEntities.Items.Weapon
             var player = equitableer as Player.Player;
             if (player.weapon != null)
             {
-                TackOff(equitable, equitableer);
+                player.weapon.tackOff(player.weapon, equitableer);
             }
             player.weapon = (Weapon)equitable;
             equitable.equitableer = equitableer;

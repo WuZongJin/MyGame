@@ -3,7 +3,12 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Octor;
+using MyGame.GameEntities.Enemys.Slime;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
+using MyGame.GameResources;
+using MyGame.GlobalManages;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -44,6 +49,9 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initGrassAndRock();
+            initEnemy();
+            initGate();
         }
         public override void onStart()
         {
@@ -174,6 +182,80 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region init Grass And Rock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var grassList = objectLayer.objectsWithName("grass");
+            var rockList = objectLayer.objectsWithName("rock");
+            foreach (var grass in grassList)
+            {
+                addEntity(new Grass01().setPosition(grass.position + new Vector2(grass.width / 2, grass.height / 2)));
+            }
+
+            foreach (var rock in rockList)
+            {
+                addEntity(xRock.create()).setPosition(rock.position + new Vector2(rock.width / 2, rock.height / 2));
+            }
+        }
+        #endregion
+
+        #region init Enemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+            var octorList = objectLayer.objectsWithName("octor");
+            var slimeObject = objectLayer.objectsWithName("slime");
+
+            foreach(var slime in slimeObject)
+            {
+                addEntity(new Slime(slime.position));
+            }
+           
+
+            foreach (var octor in octorList)
+            {
+                addEntity(new Octor()).setPosition(octor.position);
+            }
+
+
+        }
+        #endregion
+
+        #region init Gate
+        private void initGate()
+        {
+            if((GameEvent.dzMazeEvent & DongZhuangMazeEvent.Maze5GateOpened) == 0)
+            {
+                var objectLayer = tiledMap.getObjectGroup("Object");
+                var gateObject = objectLayer.objectWithName("gate");
+
+                var gate = addEntity(new MazeGateUp());
+                gate.setPosition(gateObject.position);
+
+                gate.triggerEvent += () =>
+                {
+                    if (player.items.Keys.Where(m => m.id == GameItemId.dongzhuangmazekey).Count() > 0)
+                    {
+                        gate.destoryedByKey();
+                        player.throwOut(player.items.Keys.Where(m => m.id == GameItemId.dongzhuangmazekey).First());
+                        GameEvent.dzMazeEvent = GameEvent.dzMazeEvent | DongZhuangMazeEvent.Maze1GateOpened;
+                    }
+                    else
+                    {
+                        var uiManager = Core.getGlobalManager<GameUIManager>();
+                        IList<Conmunication> conmunications = new List<Conmunication>();
+                        conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "大门需要钥匙"));
+                        uiManager.createConmunication(conmunications);
+                    }
+                };
+            }
+            
+
+
         }
         #endregion
     }

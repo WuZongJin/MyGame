@@ -25,6 +25,8 @@ namespace MyGame.GameEntities.TiledObjects
         }
 
         #region Properties
+
+        public Action onBroked;
         public bool couldPause { get; set; }
         Subtexture[] animationTexture;
         Sprite<BottleAnimation> animation;
@@ -94,14 +96,19 @@ namespace MyGame.GameEntities.TiledObjects
 
             triggerEvent = () =>
             {
-                colliderEntity.destroy();
+                if(!colliderEntity.isDestroyed)
+                    colliderEntity.destroy();
             };
         }
 
         private void Animation_onAnimationCompletedEvent(BottleAnimation obj)
         {
             if (obj == BottleAnimation.Broke)
+            {
+
+                onBroked?.Invoke();
                 this.destroy();
+            }
         }
 
         private void onAddedMethod()

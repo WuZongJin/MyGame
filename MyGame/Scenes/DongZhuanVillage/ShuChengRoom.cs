@@ -302,28 +302,34 @@ namespace MyGame.Scenes.DongZhuanVillage
             var texture = Core.content.Load<Texture2D>("Images/ItemsIcon/W_Sword001");
             var weapon = new NormalswordWeapon(texture);
             player.pickUp(weapon);
-            
+
             //player.recipes.Add(new Recipe.BombRecipe());
 
-            GameSetting.isGamePause = true;
-            var ui = Core.scene.findEntity("ui").getComponent<UICanvas>();
-            Table table = ui.stage.addElement(new Table());
-            table.setFillParent(true).center();
-            var dialog = new Dialog("提示", Skin.createDefaultSkin());
-            table.add(dialog).center();
-            dialog.center();
-            dialog.setSize(400, 500);
-            LabelStyle labelStyle = new LabelStyle(new Color(255,255,255,0));
-            var label = new Label("你获得了一把武器,请摁Q键打开菜单进行装备",labelStyle);
-            label.setWrap(true);
+            //GameSetting.isGamePause = true;
+            //var ui = Core.scene.findEntity("ui").getComponent<UICanvas>();
+            //Table table = ui.stage.addElement(new Table());
+            //table.setFillParent(true).center();
+            //var dialog = new Dialog("提示", Skin.createDefaultSkin());
+            //table.add(dialog).center();
+            //dialog.center();
+            //dialog.setSize(400, 500);
+            //LabelStyle labelStyle = new LabelStyle(new Color(255,255,255,0));
+            //var label = new Label("你获得了一把武器,请摁Q键打开菜单进行装备",labelStyle);
+            //label.setWrap(true);
 
-            dialog.getContentTable().add(label).width(300).height(100);
-            var button = new TextButton("确定", Skin.createDefaultSkin());
-            dialog.getButtonTable().add(button).width(70).height(20).setPadBottom(10);
-            button.onClicked += obj => {
-                GameSetting.isGamePause = false;
-                dialog.hide();
-            };
+            //dialog.getContentTable().add(label).width(300).height(100);
+            //var button = new TextButton("确定", Skin.createDefaultSkin());
+            //dialog.getButtonTable().add(button).width(70).height(20).setPadBottom(10);
+            //button.onClicked += obj => {
+            //    GameSetting.isGamePause = false;
+            //    dialog.hide();
+            //};
+
+            var uiManager = Core.getGlobalManager<GameUIManager>();
+            IList<Conmunication> conmunications = new List<Conmunication>();
+            conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "我获得了一把武器，按Q键打开武器菜单进行装备"));
+            conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "按Tab键可以快速装备武器或者切换武器"));
+            uiManager.createConmunication(conmunications);
 
         }
 

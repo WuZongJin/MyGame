@@ -40,9 +40,10 @@ namespace MyGame
             Graphics.instance.bitmapFont = GameSetting.defaultGameLanguage.font;
 
 
-            var startScene =new Maze0();
+            var startScene =new ShuChengRoom();
+           
             var entity = gameActorManager.player.setPosition(205, 285);
-            startScene.addEntity(entity);
+            startScene.initEntity(entity);
             scene = startScene;
         }
 

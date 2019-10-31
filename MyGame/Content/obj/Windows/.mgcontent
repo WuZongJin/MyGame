@@ -4,6 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/dzMazeBoss.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/fireBall.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Armos.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/Shield.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/animations.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/EButton.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/openFont.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/searchFont.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/springobjects.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/treasureBox_small.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/WeaponAttackUI.png</File>
+    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Enemys/Archer.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/TileMaps/Maps/DongZhuang/cave.tmx</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/TileMaps/Maps/DongZhuang/cave2.tmx</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/TileMaps/Maps/DongZhuang/cave3.tmx</File>
@@ -457,13 +469,6 @@
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsIcon/W_Throw003.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsIcon/W_Throw004.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsIcon/W_Throw05.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/animations.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/EButton.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/openFont.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/searchFont.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/springobjects.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/treasureBox_small.png</File>
-    <File>D:/vs2019Project/MyGame/MyGame/Content/Images/ItemsObjects/WeaponAttackUI.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Players/Allplayer.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/Images/Players/player.png</File>
     <File>D:/vs2019Project/MyGame/MyGame/Content/TileMaps/MapObjects/Barrier_Tree_Exposion.tmx</File>
@@ -494,23 +499,6 @@
     <File>D:/vs2019Project/MyGame/MyGame/Content/UI/window_frame_grey.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

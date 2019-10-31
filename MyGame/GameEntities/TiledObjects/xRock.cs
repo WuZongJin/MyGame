@@ -57,7 +57,8 @@ namespace MyGame.GameEntities.TiledObjects
 
 
             var rigidBody = addComponent<FSRigidBody>()
-                .setBodyType(BodyType.Dynamic);
+                .setBodyType(BodyType.Dynamic)
+                .setIsSleepingAllowed(false);
 
             var shape = addComponent<SceneObjectTriggerComponent>();
             shape.setRadius(5);

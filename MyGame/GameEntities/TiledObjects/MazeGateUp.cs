@@ -40,7 +40,7 @@ namespace MyGame.GameEntities.TiledObjects
             base.onAddedToScene();
             var texture = scene.content.Load<Texture2D>("TileMaps/MapTextures/Overworld");
             var subtexture = new Subtexture(texture, new Rectangle(352, 32, 48, 64));
-            addComponent(new Sprite(subtexture));
+            addComponent(new Sprite(subtexture)).setLayerDepth(LayerDepthExt.caluelateLayerDepth(this.position.Y));
 
             var rigidBody = addComponent<FSRigidBody>()
                 .setBodyType(BodyType.Kinematic);

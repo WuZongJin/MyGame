@@ -19,13 +19,14 @@ namespace MyGame.Recipe
             PlantFibre plantFibre = new PlantFibre();
             RawMaterial rawMaterial1 = new RawMaterial();
             rawMaterial1.material = monsterOil;
-            rawMaterial1.count = 5;
+            rawMaterial1.count = 2;
             RawMaterial rawMaterial2 = new RawMaterial();
             rawMaterial2.material = plantFibre;
-            rawMaterial2.count = 3; 
+            rawMaterial2.count = 2; 
             rawMaterials.Add(rawMaterial1);
             rawMaterials.Add(rawMaterial2);
             produce = new BombComponent();
+            porduceCount = 5;
         }
 
        

@@ -140,7 +140,7 @@ namespace MyGame.GameEntities.Player.PlayerUI
                         }
                        
                         //Core.startCoroutine(createProcessBar(recipe));
-                        player.pickUp(recipe.produce);
+                        player.pickUp(recipe.produce,recipe.porduceCount);
                         allContain.clear();
                         initRecipeTable();
                         initRecipeDetailTable(recipe);

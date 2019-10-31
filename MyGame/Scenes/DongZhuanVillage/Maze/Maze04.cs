@@ -3,7 +3,10 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Octor;
+using MyGame.GameEntities.Enemys.Slime;
 using MyGame.GameEntities.Player;
+using MyGame.GameEntities.TiledObjects;
 using MyGame.GlobalManages.GameManager;
 using Nez;
 using Nez.Farseer;
@@ -44,6 +47,9 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
+            initEnemy();
+            initGrassAndRock();
+            initHole();
         }
         public override void onStart()
         {
@@ -149,6 +155,49 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             trigger.setCollidesWith(CollisionSetting.playerCategory);
 
             return entity;
+        }
+        #endregion
+
+        #region init Grass And Rock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var grassList = objectLayer.objectsWithName("grass");
+            foreach (var grass in grassList)
+            {
+                addEntity(new Grass01()).setPosition(grass.position + new Vector2(grass.width / 2f, grass.height / 2f));
+            }
+
+        }
+        #endregion
+
+        #region init Enemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Enemy");
+            var octorList = objectLayer.objectsWithName("octor");
+            var slimeObjec = objectLayer.objectWithName("slime");
+
+            addEntity(new Slime(slimeObjec.position));
+
+            foreach(var octor in octorList)
+            {
+                addEntity(new Octor()).setPosition(octor.position);
+            }
+
+
+        }
+        #endregion
+
+        #region initHole
+        private void initHole()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Hole");
+            var holes = objectLayer.objectsWithName("hole");
+            foreach (var hole in holes)
+            {
+                addEntity(new TiledHole(hole.position + new Vector2(hole.width / 2f, hole.height / 2f), new Vector2(hole.width, hole.height)));
+            }
         }
         #endregion
     }

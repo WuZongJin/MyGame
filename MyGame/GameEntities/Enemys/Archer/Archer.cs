@@ -30,6 +30,8 @@ namespace MyGame.GameEntities.Enemys.Archer
         public Entity target = null;
         public float fieldOfView = 120.0f;
         public bool isFindTarget = false;
+        public float moveSpeed { get { return this.actorProperty.moveSpeed + actorProperty.moveSpeedUpValue + actorProperty.moveSpeed * actorProperty.moveSpeedUpRate; } }
+
         #endregion
 
         #region Constructor
@@ -49,9 +51,7 @@ namespace MyGame.GameEntities.Enemys.Archer
             base.update();
             if (actorProperty.HP <= 0)
             {
-                scene.addEntity(new Deatheffects02()).setPosition(this.position);
-                onDeathed?.Invoke();
-                this.destroy();
+                Death();
             }
 
 
@@ -61,8 +61,14 @@ namespace MyGame.GameEntities.Enemys.Archer
         {
             base.onAddedToScene();
             this.actorProperty = addComponent<ActorPropertyComponent>();
-            this.actorProperty.HP = this.actorProperty.MaxHP = 200;
+            this.actorProperty.HP = this.actorProperty.MaxHP = 80;
             this.actorProperty.moveSpeed = 70;
+
+            fallinAbleComponent = addComponent(new FallinAbleComponent());
+            fallinAbleComponent.fallin += () =>
+            {
+                Death();
+            };
 
             var texture = scene.content.Load<Texture2D>("Images/Enemys/Archer");
             addComponent(new Sprite(texture)).setLayerDepth(LayerDepthExt.caluelateLayerDepth(this.position.Y));
@@ -85,6 +91,8 @@ namespace MyGame.GameEntities.Enemys.Archer
                 };
 
             };
+
+            addComponent(new ArcherSimpleStateMachine(this));
         }
 
         #endregion
@@ -128,6 +136,15 @@ namespace MyGame.GameEntities.Enemys.Archer
             };
 
             addComponent<RigidBodyVelocityLimited>();
+        }
+        #endregion
+
+        #region Death
+        public void Death()
+        {
+            scene.addEntity(new Deatheffects02()).setPosition(this.position);
+            onDeathed?.Invoke();
+            this.destroy();
         }
         #endregion
     }

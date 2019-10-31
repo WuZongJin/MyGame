@@ -17,6 +17,6 @@ namespace MyGame.Common.Game
     }
     public static class PlayerUILocker
     {
-        public static PlayerUIElementLocker playerUILocker = PlayerUIElementLocker.HPBar|PlayerUIElementLocker.ItemWindow|PlayerUIElementLocker.CreateItemWindow|PlayerUIElementLocker.ExecuteablePropsWindow;
+        public static PlayerUIElementLocker playerUILocker = PlayerUIElementLocker.HPBar|PlayerUIElementLocker.ItemWindow|PlayerUIElementLocker.CreateItemWindow|PlayerUIElementLocker.ExecuteablePropsWindow|PlayerUIElementLocker.EquitWindow;
     }
 }

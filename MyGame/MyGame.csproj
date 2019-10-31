@@ -76,8 +76,14 @@
     <Compile Include="GameEntities\AnimationEffects\Deatheffect\RockDestoryeffects.cs" />
     <Compile Include="GameEntities\Enemys\Archer\Archer.cs" />
     <Compile Include="GameEntities\Enemys\Archer\ArcherSimpleStateMachine.cs" />
+    <Compile Include="GameEntities\Enemys\Armos\Armos.cs" />
+    <Compile Include="GameEntities\Enemys\Armos\ArmosSimpleStateMachine.cs" />
     <Compile Include="GameEntities\Enemys\Bat\Bat.cs" />
     <Compile Include="GameEntities\Enemys\Bat\BatSampleStateMachine.cs" />
+    <Compile Include="GameEntities\Enemys\DZMazeBoss\DZMazeBossHPBar.cs" />
+    <Compile Include="GameEntities\Enemys\DZMazeBoss\FallinFireAttack.cs" />
+    <Compile Include="GameEntities\Enemys\DZMazeBoss\DZMazeBoss.cs" />
+    <Compile Include="GameEntities\Enemys\DZMazeBoss\DZMazeBossSimpleStateMachine.cs" />
     <Compile Include="GameEntities\Enemys\EnemyComponent.cs" />
     <Compile Include="GameEntities\Enemys\EnemyViewEntitySystem.cs" />
     <Compile Include="GameEntities\Enemys\DamageTrigerComponent.cs" />
@@ -102,6 +108,8 @@
     <Compile Include="GameEntities\Items\IPickupable.cs" />
     <Compile Include="GameEntities\Items\ItemComponent.cs" />
     <Compile Include="GameEntities\Items\ItemMaterials.cs" />
+    <Compile Include="GameEntities\Items\ItemMaterials\Arrow\Arrow.cs" />
+    <Compile Include="GameEntities\Items\ItemMaterials\Arrow\ArrowEntity.cs" />
     <Compile Include="GameEntities\Items\ItemMaterials\MonsterOil\MonsterOil.cs" />
     <Compile Include="GameEntities\Items\ItemMaterials\MonsterOil\MonsterOilEntity.cs" />
     <Compile Include="GameEntities\Items\ItemMaterials\PlantFibre\PlantFiberEntity.cs" />
@@ -113,7 +121,8 @@
     <Compile Include="GameEntities\Items\Others\DongZhuangMazeKey\DongZhuangMazeKeyEntity.cs" />
     <Compile Include="GameEntities\Items\Others\DongZhuangMazeKey\DongZhuangMazeKey.cs" />
     <Compile Include="GameEntities\Items\RestoreProps.cs" />
-    <Compile Include="GameEntities\Items\Weapon\Normalsword.cs" />
+    <Compile Include="GameEntities\Items\Weapon\Bow\NormalBow.cs" />
+    <Compile Include="GameEntities\Items\Weapon\Sword\Normalsword.cs" />
     <Compile Include="GameEntities\Items\Weapon\Weapon.cs" />
     <Compile Include="GameEntities\NPC\DongZhuangVillageMayor.cs" />
     <Compile Include="GameEntities\Player\Player.cs" />
@@ -143,6 +152,7 @@
     <Compile Include="GameEntities\TiledObjects\TreasureBox.cs" />
     <Compile Include="GameEntities\TiledObjects\TriggerAbleObject.cs" />
     <Compile Include="GameEntities\TiledObjects\xRock.cs" />
+    <Compile Include="GameEntities\Utils\MoveAbleEntity.cs" />
     <Compile Include="GameLanguage\ChineseLanguage.cs" />
     <Compile Include="GameLanguage\CommonText\CommonTextContent.cs" />
     <Compile Include="GameLanguage\DongZhuangVillage\ShuChengRoomTextContent.cs" />
@@ -152,6 +162,7 @@
     <Compile Include="GameResources\BoomTexturePacker.cs" />
     <Compile Include="GameResources\xAnimationsTexturePacker.cs" />
     <Compile Include="GameResources\xObjectTexturePacker.cs" />
+    <Compile Include="GameResources\yObjectTexturePacker.cs" />
     <Compile Include="GlobalManages\GameManager\GameActorManager.cs" />
     <Compile Include="GlobalManages\GameUIManager\GameUIManager.cs" />
     <Compile Include="GlobalManages\GameUIManager\SelectedWindow.cs" />
@@ -164,6 +175,7 @@
     <Compile Include="MyUIs\ItemButton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe\ArrowRecipe.cs" />
     <Compile Include="Recipe\BombRecipe.cs" />
     <Compile Include="Recipe\Recipe.cs" />
     <Compile Include="Scenes\BasicScene.cs" />

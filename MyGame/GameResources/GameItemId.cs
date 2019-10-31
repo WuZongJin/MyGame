@@ -10,6 +10,7 @@ namespace MyGame.GameResources
     {
         #region Weapon
         public static string noramlSworld = "000000001";
+        public static string normalArrow =  "000000002";
         #endregion
 
 
@@ -23,6 +24,7 @@ namespace MyGame.GameResources
         public static string normalrestoremedicine =    "000003000";
         public static string plantfibre =               "000004000";
         public static string rock =                     "000005000";
+        public static string arrow =                    "000006000";
         #endregion
 
         #region Other Item

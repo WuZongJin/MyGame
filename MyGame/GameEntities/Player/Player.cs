@@ -91,6 +91,7 @@ namespace MyGame.GameEntities.Player
         public VirtualButton leftButton;
 
         public VirtualButton attackButton;
+        public VirtualButton switchButton;
 
         public VirtualButton itemsWindowButton;
         public VirtualButton equitWindowButton;
@@ -285,19 +286,38 @@ namespace MyGame.GameEntities.Player
         {
             if (couldPause && GameSetting.isGamePause) return;
             base.update();
-            //if (potentialFallin)
-            //{
-            //    var tposition = this.rigidBody.body.position + new Vector2(0f,0.05f);
-            //    if (fallinHole.testPoint(ref tposition))
-            //    {
-            //        fallin?.Invoke();
-            //    }
-            //}
-
+            if (switchButton.isPressed)
+            {
+                switchWeapon();
+            }
             preDirection = currentDirection;
             playerStateMachine.update(Time.deltaTime);
             animation.setLayerDepth(LayerDepthExt.caluelateLayerDepth(this.position.Y));
         }
+        #endregion
+
+        #region SwitchWeapon
+
+        private void switchWeapon()
+        {
+            if (!((playerStateMachine.currentState is IdleState)|| (playerStateMachine.currentState is WalkState)))
+                return;
+
+            
+
+             var weanpons = items.Keys.Where(m => m is Weapon);
+            if (weanpons.Count() > 0)
+            {
+                var wea = weanpons.First() as Weapon;
+                if (weapon != null)
+                {
+                    weapon.tackOff(weapon, this);
+                }
+               
+                wea.equit(wea, this);
+            }
+        }
+
         #endregion
 
         #region ActorProperties Method
@@ -736,7 +756,7 @@ namespace MyGame.GameEntities.Player
         {
             rigidBody = addComponent<FSRigidBody>()
                 .setBodyType(BodyType.Dynamic)
-                .setLinearDamping(0.8f)
+                .setLinearDamping(0.9f)
                 .setMass(2f)
                 .setFixedRotation(true)
                 .setIsSleepingAllowed(false)
@@ -792,6 +812,9 @@ namespace MyGame.GameEntities.Player
 
             attackButton = new VirtualButton();
             attackButton.nodes.Add(new KeyboardKey(Keys.X));
+
+            switchButton = new VirtualButton();
+            switchButton.nodes.Add(new KeyboardKey(Keys.Tab));
 
             itemsWindowButton = new VirtualButton();
             itemsWindowButton.nodes.Add(new KeyboardKey(Keys.Q));

@@ -3,9 +3,14 @@ using Microsoft.Xna.Framework;
 using MyGame.Common;
 using MyGame.Common.Game;
 using MyGame.GameConponents.SceneObjectTriggerComponents;
+using MyGame.GameEntities.Enemys.Archer;
+using MyGame.GameEntities.Enemys.Bat;
+using MyGame.GameEntities.Items.Weapon;
 using MyGame.GameEntities.Player;
 using MyGame.GameEntities.TiledObjects;
+using MyGame.GlobalManages;
 using MyGame.GlobalManages.GameManager;
+using MyGame.Recipe;
 using Nez;
 using Nez.Farseer;
 using Nez.Tiled;
@@ -44,7 +49,8 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             initPlayer();
             initTiledMap();
             initSceneChangeTrigger();
-            initHole();
+            initHole(); initEnemy();
+            initGrassAndRock();
 
         }
         public override void onStart()
@@ -145,6 +151,62 @@ namespace MyGame.Scenes.DongZhuanVillage.Maze
             }
 
         }
+        #endregion
+
+        #region init Grass And Rock
+        private void initGrassAndRock()
+        {
+            var objectLayer = tiledMap.getObjectGroup("GrassAndRock");
+            var grassList = objectLayer.objectsWithName("grass");
+            foreach(var grass in grassList)
+            {
+                addEntity(new Grass01()).setPosition(grass.position+new Vector2(grass.width/2f,grass.height/2f));
+            }
+
+        }
+        #endregion
+
+        #region initEnemy
+        private void initEnemy()
+        {
+            var objectLayer = tiledMap.getObjectGroup("Object");
+            var enemy = objectLayer.objectWithName("enemy");
+
+            if ((GameEvent.dzMazeEvent & DongZhuangMazeEvent.PlayerGetArrow) == 0)
+            {
+
+                var archer = addEntity(new Archer());
+                archer.setPosition(enemy.position);
+
+                archer.onDeathed += () =>
+                {
+                    var Tbox = scene.addEntity(new TreasureBox());
+                    Tbox.setPosition(157, 176);
+                    Tbox.openBox += () =>
+                    {
+                        GameEvent.dzMazeEvent = GameEvent.dzMazeEvent | DongZhuangMazeEvent.PlayerGetArrow;
+                        player.pickUp(new NormalBowWeapon());
+                        player.recipes.Add(new ArrowRecipe());
+
+                        var uiManager = Core.getGlobalManager<GameUIManager>();
+                        IList<Conmunication> conmunications = new List<Conmunication>();
+                        conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "我获得了一把弓，按Q键打开武器菜单进行查看，或按Tab键快速切换"));
+                        conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "弓可以进行远程攻击，且必须要有箭才可进行攻击"));
+                        conmunications.Add(new Conmunication("Images/headIcons/Link_Sprite", "箭的配方已经加入到制造中了，没有箭的时候可以进行制造哦"));
+                        uiManager.createConmunication(conmunications);
+
+
+                    };
+                };
+            }
+
+            var bats = objectLayer.objectsWithName("bat");
+            foreach(var bat in bats)
+            {
+                addEntity(new Bat()).setPosition(bat.position);
+            }
+        }
+
         #endregion
     }
 }

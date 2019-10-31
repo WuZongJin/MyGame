@@ -36,7 +36,7 @@ namespace MyGame.GameEntities.Enemys.Octor
         public Entity target;
         FSRigidBody rigidBody;
 
-        float fieldOfView = 70.0f;
+        float fieldOfView = 150.0f;
         public bool isFindTarget = false;
         public bool inHideBeAttacked = false;
 
@@ -68,6 +68,7 @@ namespace MyGame.GameEntities.Enemys.Octor
             var texture3 = GameResources.GameTextureResource.xObjectPacker.Packer.getSubtexture(750);
 
             animations = addComponent(new Sprite<OctorAnimations>(new Subtexture(texture1)));
+            animations.setLayerDepth(LayerDepthExt.caluelateLayerDepth(this.position.Y));
             animations.addAnimation(OctorAnimations.Attack, new SpriteAnimation(new Subtexture(texture2)));
             animations.addAnimation(OctorAnimations.Appera, new SpriteAnimation(new Subtexture(texture1)));
             animations.addAnimation(OctorAnimations.Hide, new SpriteAnimation(texture3));

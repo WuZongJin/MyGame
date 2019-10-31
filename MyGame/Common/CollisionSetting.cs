@@ -32,6 +32,8 @@ namespace MyGame.Common
         public static Category posionAttackCategory = Category.Cat23;
         public static Category thumderAttackCategory = Category.Cat24;
 
+        public static Category unableColliderCategory = Category.Cat31;
+
         public static Category allActorCategory = enemyCategory | playerCategory | npcCategory;                 //所有的角色
         public static Category allTriggerAbleCategory = ItemsCategory | TriggerCategory | tiledObjectCategory;  //所有的可触发的物体
         public static Category allAttackTypeCategory = expositionCategory | fireAttackCategory | posionAttackCategory | thumderAttackCategory;  //所有攻击类型
